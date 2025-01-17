@@ -1,0 +1,17 @@
+with-expecter: true
+issue-845-fix: true
+packages:
+  github.com/jfelipearaujo-urlshortener/urlshortener-app/internal/infra/persistence:
+    config:
+      filename: "repository_mock.go"
+      dir: "./internal/infra/persistence"
+      mockname: "Mock{{.InterfaceName}}"
+      inpackage: true
+      include-regex: ".*Repository$"
+  github.com/jfelipearaujo-urlshortener/urlshortener-app/internal/application/usecase/create_url:
+    config:
+      filename: "{{.InterfaceName | lower }}_mock.go"
+      dir: "./internal/application/usecase/create_url"
+      mockname: "Mock{{.InterfaceName}}"
+      inpackage: true
+      include-regex: ".*UseCase$"
